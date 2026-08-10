@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: stormguard-ai
+    env: docker
+    plan: starter
+    region: oregon
+    branch: main
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: NOAA_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SLACK_WEBHOOK_URL
+        sync: false
+    autoDeploy: true
+
+  # Worker opcional: evaluación periódica de activos vs. alertas activas
+  # - type: worker
+  #   name: stormguard-ai-monitor
+  #   env: docker
+  #   dockerCommand: python engine/monitor.py
+  #   plan: starter
+  #   region: oregon
+  #   branch: main
+  #   envVars:
+  #     - key: NOAA_API_KEY
+  #       sync: false
+  #     - key: DATABASE_URL
+  #       sync: false
+  #   autoDeploy: true

@@ -1,0 +1,5 @@
+# TODO: completar con las versiones reales de tu proyecto
+streamlit
+sqlalchemy
+requests
+pandas
