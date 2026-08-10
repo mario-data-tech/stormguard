@@ -2,7 +2,7 @@ services:
   - type: web
     name: stormguard-ai
     env: docker
-    plan: starter
+    plan: free
     region: oregon
     branch: main
     healthCheckPath: /_stcore/health
